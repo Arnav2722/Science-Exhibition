@@ -1,0 +1,77 @@
+{% extends 'testing.html' %}
+{% block content %}
+<div class="container">
+    <h2>Problem Statement</h2>
+    <p>The envisioned project holds significant value in the medical domain. It proposes the development of a machine
+        learning-driven web application dedicated to medical diagnostics. The project entails the creation of a machine
+        learning model, seamlessly integrated into the web application, enabling users to upload their medical data for
+        analysis. The application will employ the developed machine learning model to detect health diseases.
+        Subsequently, users can schedule appointments with doctors through the web application if they seek professional
+        advice. Additionally, a chat (email) feature will facilitate communication between patients and doctors within
+        the platform.</p>
+
+    <h2>Why this Project?</h2>
+    <p>While humans are prone to errors, machines are not, and their predicted outcomes can be assessed for accuracy
+        through machine learning. Bearing this in mind, extensive research was conducted in the realms of allopathic,
+        homeopathic, and ayurvedic data. Due to the limited availability of research papers for patient datasets in
+        homeopathy and ayurvedic medicine, the decision was made to utilize allopathic datasets accessible on platforms
+        such as Kaggle and the UCI machine learning portals.</p>
+
+    <h2>Technical aspect</h2>
+    <p>This webapp was developed using Flask Web Framework. The models used to predict the diseases were trained on
+        large Datasets. All the links for datasets and the python notebooks used for model creation are mentioned below
+        in this readme. The webapp can predict following Diseases:</p>
+    <ul>
+        <li>Diabetes</li>
+        <li>Breast Cancer</li>
+        <li>Heart Disease</li>
+        <li>Kidney Disease</li>
+        <li>Liver Disease</li>
+        <li>Malaria</li>
+    </ul>
+
+    <h3>Models with their Accuracy of Prediction</h3>
+    <table>
+        <tr>
+            <th>Disease</th>
+            <th>Type of Model</th>
+            <th>Accuracy</th>
+        </tr>
+        <tr>
+            <td>Diabetes</td>
+            <td>Machine Learning Model</td>
+            <td>74.03%</td>
+        </tr>
+        <tr>
+            <td>Breast Cancer</td>
+            <td>Machine Learning Model</td>
+            <td>96.49%</td>
+        </tr>
+        <tr>
+            <td>Heart Disease</td>
+            <td>Machine Learning Model</td>
+            <td>100%</td>
+        </tr>
+        <tr>
+            <td>Kidney Disease</td>
+            <td>Machine Learning Model</td>
+            <td>96.88%</td>
+        </tr>
+        <tr>
+            <td>Liver Disease</td>
+            <td>Machine Learning Model</td>
+            <td>77.97%</td>
+        </tr>
+        <tr>
+            <td>Malaria</td>
+            <td>Deep Learning Model(CNN)</td>
+            <td>94.78%</td>
+        </tr>
+    </table>
+
+    <p><strong>NOTE</strong><br>
+        ==> Python version 3.6.8 was used for the whole project.<br></p>
+
+</div>
+<br>
+{% endblock %}

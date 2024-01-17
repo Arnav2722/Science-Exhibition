@@ -1,0 +1,72 @@
+{% extends 'testing.html' %}
+{% block content %}
+<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet"
+    type="text/css" />
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+<meta charset="utf-8" />
+<title>JS Bin</title>
+<!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<style>
+    article,
+    aside,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+        display: block;
+    }
+</style>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(500)
+                    .height(500);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+{% if message %}
+<div class="alert alert-danger">{{ message }}</div>
+{% endif %}
+<div class="container">
+    <div class="row" style="margin-bottom: 300px;">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <center>
+                <h1>Malaria Predictor</h1>
+            </center>
+            <div class="card card-body">
+                <center>
+                    <h3>Please upload the image of the cell</h3>
+                </center>
+                <form class="form-horizontal" action="{{ url_for('malariapredictPage') }}" method="POST"
+                    enctype="multipart/form-data">
+                    <center>
+                        <input onchange="readURL(this);" type="file" name="image" placeholder="Upload Image">
+                        <br>
+                        <br>
+                        <img class="img-fluid" id="blah" src="#" alt="UPLOADED IMAGE WILL APPEAR HERE" />
+                        <br>
+                        <br>
+                        <input class="btn btn-info" type="submit">
+                    </center>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+{% endblock %}

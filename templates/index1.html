@@ -1,0 +1,222 @@
+{% extends 'testing.html' %}
+{% block content %}
+<div class="container">
+    <div class="p-4 p-md-5 mb-4 text-body-emphasis bg-body-secondary"
+        style="background-image: url(../static/image1.1.jpg); height: auto; width: auto;">
+        <div class="col-lg-6 px-0">
+            <h1 class="display-4 .fst-italic">Medical Diagnosis-A step tests for every problem</h1>
+            <p class="lead my-3">Every type of test can be done using Machine Learning In Python</p>
+            <p class="lead mb-0"><a href="{{ url_for('aboutUs')}}" class="text-body-emphasis fw-bold">Know More</a></p>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary-emphasis">Test 1</strong>
+                    <h3 class="mb-0">Diabetes</h3>
+                    <div class="mb-1 text-body-secondary"></div>
+                    <p class="card-text mb-auto">Symptoms of Diabetes are :-
+                    <ul>
+                        <li>Feeling more thirsty than usual</li>
+                        <li>Urinating often</li>
+                        <li>Loosing weight without trying</li>
+                        <li>Feeling tired and weak</li>
+                    </ul>
+                    </p>
+                    <a href="{{ url_for('diabetesPage') }}" class="icon-link gap-1 icon-link-hover stretched-link">
+                        Test Now
+                        <svg class="bi">
+                            <use xlink:href="#chevron-right"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <!-- <svg class="bd-placeholder-img" width="200" height="300" xmlns="http://www.w3.org/2000/svg"
+                        role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                        focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
+                            dy=".3em"><img src="/static/diabetes.jpg" alt=""></text>
+                    </svg> -->
+                    <img src="/static/diabetes.jpg" alt="" width="200" height="300">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary-emphasis">Test 2</strong>
+                    <h3 class="mb-0">Breast Cancer</h3>
+                    <div class="mb-1 text-body-secondary"></div>
+                    <p class="card-text mb-auto">The symptoms of Breast Cancer are:-
+                    <ul>
+                        <li>New lump in the breast or underarm</li>
+                        <li>Thickening or swelling of part of the breast</li>
+                        <li>Irritation or dimpling of breast skin.</li>
+                        <li>Irritation or dimpling of breast skin</li>
+                    </ul>
+                    </p>
+                    <a href="{{ url_for('cancerPage') }}" class="icon-link gap-1 icon-link-hover stretched-link">
+                        Test Now
+                        <svg class="bi">
+                            <use xlink:href="#chevron-right"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <!-- <svg class="bd-placeholder-img" width="200" height="300" xmlns="http://www.w3.org/2000/svg"
+                        role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                        focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
+                            dy=".3em"><img src="/static//breast cancer.jpg" alt=""></text>
+                    </svg> -->
+                    <img src="/static/breast cancer.jpg" alt="" width="200" height="300">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary-emphasis">Test 3</strong>
+                    <h3 class="mb-0">Heart Disease</h3>
+                    <div class="mb-1 text-body-secondary"></div>
+                    <p class="card-text mb-auto">The Symptoms of Heart Disease are:-
+                    <ul>
+                        <li>Pain, numbness or weakness in the legs or arms</li>
+                        <li>Chest pain, chest tightness and chest pressure</li>
+                        <li>Pain in the neck, jaw, throat or upper belly area</li>
+                        <li>Shortness of breath</li>
+                    </ul>
+                    </p>
+                    <a href="{{ url_for('heartPage') }}" class="icon-link gap-1 icon-link-hover stretched-link">
+                        Test Now
+                        <svg class="bi">
+                            <use xlink:href="#chevron-right"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <!-- <svg class="bd-placeholder-img" width="200" height="300" xmlns="http://www.w3.org/2000/svg"
+                        role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                        focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
+                            dy=".3em">Thumbnail</text>
+                    </svg> -->
+                    <img src="/static/HEart.jpg" alt="" width="200" height="300">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary-emphasis">Test 4</strong>
+                    <h3 class="mb-0">Kidney Disease</h3>
+                    <div class="mb-1 text-body-secondary"></div>
+                    <p class="card-text mb-auto">The Symptoms of Kidney Disease are:-
+                    <ul>
+                        <li>Decreased Mental sharpness</li>
+                        <li>Swelling of feet and ankles</li>
+                        <li>Urinating more or less</li>
+                        <li>Sleeping problems</li>
+                    </ul>
+                    </p>
+                    <a href="{{ url_for('kidneyPage') }}" class="icon-link gap-1 icon-link-hover stretched-link">
+                        Test Now
+                        <svg class="bi">
+                            <use xlink:href="#chevron-right"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <!-- <svg class="bd-placeholder-img" width="200" height="300" xmlns="http://www.w3.org/2000/svg"
+                        role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                        focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
+                            dy=".3em">Thumbnail</text>
+                    </svg> -->
+                    <img src="/static/kidney.jpg" alt="" width="200" height="300">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary-emphasis">Test 5</strong>
+                    <h3 class="mb-0">Malaria</h3>
+                    <div class="mb-1 text-body-secondary"></div>
+                    <p class="card-text mb-auto">The symptoms of Malaria are:-
+                    <ul>
+                        <li>Diarrhea</li>
+                        <li>Fatigue</li>
+                        <li>Rapid Breathing</li>
+                        <li>Nausea and Vomiting</li>
+                    </ul>
+                    </p>
+                    <a href="{{ url_for('malariaPage') }}" class="icon-link gap-1 icon-link-hover stretched-link">
+                        Test Now
+                        <svg class="bi">
+                            <use xlink:href="#chevron-right"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <!-- <svg class="bd-placeholder-img" width="200" height="300" xmlns="http://www.w3.org/2000/svg"
+                        role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                        focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
+                            dy=".3em">Thumbnail</text>
+                    </svg> -->
+                    <img src="/static/malaria.jpg" alt="" width="200" height="300">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary-emphasis">Test 6</strong>
+                    <h3 class="mb-0">Liver Disease</h3>
+                    <div class="mb-1 text-body-secondary"></div>
+                    <p class="card-text mb-auto">The Symptoms of Liver are :-
+                    <ul>
+                        <li>Abdominal Pain and swelling</li>
+                        <li>Itchy Skin</li>
+                        <li>Dark Urine color</li>
+                        <li>Chronic Fatigue</li>
+                    </ul>
+                    </p>
+                    <a href="{{ url_for('liverPage') }}" class="icon-link gap-1 icon-link-hover stretched-link">
+                        Test Now
+                        <svg class="bi">
+                            <use xlink:href="#chevron-right"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <!-- <svg class="bd-placeholder-img" width="200" height="300" xmlns="http://www.w3.org/2000/svg"
+                        role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                        focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
+                            dy=".3em">Thumbnail</text>
+                    </svg> -->
+                    <img src="/static/liver.jpg" alt="" width="200" height="300">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
