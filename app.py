@@ -89,6 +89,76 @@ def predictPage():
     return render_template("predict.html", pred=pred)
 
 
+@app.route("/breastCancerPredict", methods=["POST", "GET"])
+def predictPage():
+    try:
+        if request.method == "POST":
+            to_predict_dict = request.form.to_dict()
+            to_predict_list = list(map(float, list(to_predict_dict.values())))
+            pred = predict(to_predict_list, to_predict_dict)
+    except:
+        message = "Please enter valid Data"
+        return render_template("index1.html", message=message)
+
+    return render_template("breast_cancer_predict.html", pred=pred)
+
+
+@app.route("/diabetesPredict", methods=["POST", "GET"])
+def predictPage():
+    try:
+        if request.method == "POST":
+            to_predict_dict = request.form.to_dict()
+            to_predict_list = list(map(float, list(to_predict_dict.values())))
+            pred = predict(to_predict_list, to_predict_dict)
+    except:
+        message = "Please enter valid Data"
+        return render_template("index1.html", message=message)
+
+    return render_template("diabetes_predict.html", pred=pred)
+
+
+@app.route("/heartPredict", methods=["POST", "GET"])
+def predictPage():
+    try:
+        if request.method == "POST":
+            to_predict_dict = request.form.to_dict()
+            to_predict_list = list(map(float, list(to_predict_dict.values())))
+            pred = predict(to_predict_list, to_predict_dict)
+    except:
+        message = "Please enter valid Data"
+        return render_template("index1.html", message=message)
+
+    return render_template("heart_predict.html", pred=pred)
+
+
+@app.route("/kidneyPredict", methods=["POST", "GET"])
+def predictPage():
+    try:
+        if request.method == "POST":
+            to_predict_dict = request.form.to_dict()
+            to_predict_list = list(map(float, list(to_predict_dict.values())))
+            pred = predict(to_predict_list, to_predict_dict)
+    except:
+        message = "Please enter valid Data"
+        return render_template("index1.html", message=message)
+
+    return render_template("kidney_predict.html", pred=pred)
+
+
+@app.route("/liverPredict", methods=["POST", "GET"])
+def predictPage():
+    try:
+        if request.method == "POST":
+            to_predict_dict = request.form.to_dict()
+            to_predict_list = list(map(float, list(to_predict_dict.values())))
+            pred = predict(to_predict_list, to_predict_dict)
+    except:
+        message = "Please enter valid Data"
+        return render_template("index1.html", message=message)
+
+    return render_template("liver_predict.html", pred=pred)
+
+
 @app.route("/malariapredict", methods=["POST", "GET"])
 def malariapredictPage():
     if request.method == "POST":
