@@ -90,7 +90,7 @@ def predictPage():
 
 
 @app.route("/breastCancerPredict", methods=["POST", "GET"])
-def predictPage():
+def cancerPredictPage():
     try:
         if request.method == "POST":
             to_predict_dict = request.form.to_dict()
@@ -104,7 +104,7 @@ def predictPage():
 
 
 @app.route("/diabetesPredict", methods=["POST", "GET"])
-def predictPage():
+def diabetesPredictPage():
     try:
         if request.method == "POST":
             to_predict_dict = request.form.to_dict()
@@ -118,7 +118,7 @@ def predictPage():
 
 
 @app.route("/heartPredict", methods=["POST", "GET"])
-def predictPage():
+def heartPredictPage():
     try:
         if request.method == "POST":
             to_predict_dict = request.form.to_dict()
@@ -132,7 +132,7 @@ def predictPage():
 
 
 @app.route("/kidneyPredict", methods=["POST", "GET"])
-def predictPage():
+def kidneyPredictPage():
     try:
         if request.method == "POST":
             to_predict_dict = request.form.to_dict()
@@ -146,7 +146,7 @@ def predictPage():
 
 
 @app.route("/liverPredict", methods=["POST", "GET"])
-def predictPage():
+def liverPredictPage():
     try:
         if request.method == "POST":
             to_predict_dict = request.form.to_dict()
@@ -160,7 +160,7 @@ def predictPage():
 
 
 @app.route("/malariapredict", methods=["POST", "GET"])
-def malariapredictPage():
+def malariaPredictPage():
     if request.method == "POST":
         try:
             if "image" in request.files:
