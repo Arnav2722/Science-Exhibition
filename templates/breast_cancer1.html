@@ -8,7 +8,7 @@
                 <h1>Breast Cancer Predictor</h1>
             </center>
             <div class="card card-body" style="border: 1px solid black;">
-                <form class="form-horizontal" action="{{ url_for('cancerPredictPage') }}" method="POST">
+                <form id="myForm" class="form-horizontal" action="{{ url_for('cancerPredictPage') }}" method="POST">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
@@ -200,4 +200,45 @@
     </div>
 </div>
 <br>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("myForm").addEventListener("submit", function (event) {
+            if (!validateForm()) {
+                event.preventDefault();
+            }
+        });
+    });
+    function validateNumericInput(inputId, fieldName) {
+        var input = document.getElementById(inputId);
+        var value = input.value.trim();
+        if (value === "") {
+            alert("Please fill the '" + fieldName + "' field.");
+            input.focus();
+            return false;
+        }
+        if (!/^\d+(\.\d+)?$/.test(value)) {
+            alert("Please enter a valid numeric value for '" + fieldName + "'.");
+            input.focus();
+            return false;
+        }
+        return true;
+    }
+    function validateForm() {
+        var fields = [
+            "radius_mean", "texture_mean", "perimeter_mean", "area_mean", "smoothness_mean",
+            "compactness_mean", "concavity_mean", "concave_points_mean", "symmetry_mean",
+            "radius_se", "perimeter_se", "area_se", "compactness_se", "concavity_se",
+            "concave_points_se", "fractal_dimension_se", "radius_worst", "texture_worst",
+            "perimeter_worst", "area_worst", "smoothness_worst", "compactness_worst",
+            "concavity_worst", "concave_points_worst", "symmetry_worst", "fractal_dimension_worst"
+        ];
+        for (var i = 0; i < fields.length; i++) {
+            if (!validateNumericInput(fields[i], fields[i])) {
+                alert("Fill the form");
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
 {% endblock %}

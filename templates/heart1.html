@@ -8,25 +8,25 @@
                 <h1>Heart Disease Predictor</h1>
             </center>
             <div class="card card-body" style="border: 1px solid black;">
-                <form class="form-horizontal" action="{{ url_for('heartPredictPage') }}" method="POST">
+                <form id="myForm" class="form-horizontal" action="{{ url_for('heartPredictPage') }}" method="POST">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="age"
-                                    placeholder="age">
+                                <input style="border: 1px solid black;" class="form-control" type="number" name="age"
+                                    id="age" placeholder="age">
                                 <p>age in years eg: 29-77</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="sex"
-                                    placeholder="sex(Male:1, female:0)">
+                                <input style="border: 1px solid black;" class="form-control" type="number" name="sex"
+                                    id="sex" placeholder="sex(Male:1, female:0)">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="cp"
-                                    placeholder="chest pain type">
+                                <input style="border: 1px solid black;" class="form-control" type="number" name="cp"
+                                    id="cp" placeholder="chest pain type">
                             </div>
                             <p>0 to 3 as worst</p>
                         </div>
@@ -34,21 +34,21 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="trestbps"
-                                    placeholder="resting blood pressure in mm Hg">
+                                <input style="border: 1px solid black;" class="form-control" type="number"
+                                    name="trestbps" id="trestbps" placeholder="resting blood pressure in mm Hg">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="chol"
-                                    placeholder="serum cholestoral in mg/dl">
+                                <input style="border: 1px solid black;" class="form-control" type="number" name="chol"
+                                    id="chol" placeholder="serum cholestoral in mg/dl">
                                 <p>serum cholestoral in mg/dl</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="fbs"
-                                    placeholder="fasting blood sugar 120 mg/dl(1 = true; 0 = false)">
+                                <input style="border: 1px solid black;" class="form-control" type="number" name="fbs"
+                                    id="fbs" placeholder="fasting blood sugar 120 mg/dl(1 = true; 0 = false)">
                                 <p>(fasting blood sugar 120 mg/dl) (1 = true; 0 = false)</p>
                             </div>
                         </div>
@@ -56,42 +56,43 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="restecg"
-                                    placeholder="resting electrocardiographic results">
+                                <input style="border: 1px solid black;" class="form-control" type="number"
+                                    name="restecg" id="restecg" placeholder="resting electrocardiographic results">
                                 <p>0, 1</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="thalach"
-                                    placeholder="maximum heart rate achieved">
+                                <input style="border: 1px solid black;" class="form-control" type="number"
+                                    name="thalach" id="thalach" placeholder="maximum heart rate achieved">
                                 <p>eg: 71- 202</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="exang"
-                                    placeholder="exercise induced angina (1 = yes; 0 = no)">
+                                <input style="border: 1px solid black;" class="form-control" type="number" name="exang"
+                                    id="exang" placeholder="exercise induced angina (1 = yes; 0 = no)">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="oldpeak"
+                                <input style="border: 1px solid black;" class="form-control" type="number"
+                                    name="oldpeak" id="oldpeak"
                                     placeholder="ST depression induced by exercise relative to rest">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="slope"
-                                    placeholder="the slope of the peak exercise ST segment">
+                                <input style="border: 1px solid black;" class="form-control" type="number" name="slope"
+                                    id="slope" placeholder="the slope of the peak exercise ST segment">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="ca"
-                                    placeholder="number of major vessels (0-3) colored by flourosopy">
+                                <input style="border: 1px solid black;" class="form-control" type="number" name="ca"
+                                    id="ca" placeholder="number of major vessels (0-3) colored by flourosopy">
                             </div>
                         </div>
                     </div>
@@ -99,8 +100,8 @@
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="thal"
-                                    placeholder="3 = normal; 6 = fixed defect; 7 = reversable defect">
+                                <input style="border: 1px solid black;" class="form-control" type="number" name="thal"
+                                    id="thal" placeholder="3 = normal; 6 = fixed defect; 7 = reversable defect">
                             </div>
                         </div>
                         <div class="col-md-4"></div>
@@ -112,4 +113,48 @@
         <div class="col-md-2"></div>
     </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("myForm").addEventListener("submit", function (event) {
+            if (!validateForm()) {
+                event.preventDefault();
+            }
+        });
+    });
+
+    function validateForm() {
+        var fields = [
+            { id: "age", type: "number", min: 29, max: 77, message: "Please enter a valid age between 29 and 77." },
+            { id: "sex", type: "binary", message: "Please enter a valid value for sex (0 for female, 1 for male)." },
+            { id: "cp", type: "number", min: 0, max: 3, message: "Please enter a valid chest pain type between 0 and 3." },
+            { id: "trestbps", type: "number", message: "Please enter a valid resting blood pressure (numeric value)." },
+            { id: "chol", type: "number", message: "Please enter a valid serum cholestoral (numeric value)." },
+            { id: "fbs", type: "binary", message: "Please enter a valid value for fasting blood sugar (0 or 1)." },
+            { id: "restecg", type: "binary", message: "Please enter a valid resting electrocardiographic results (0 or 1)." },
+            { id: "thalach", type: "number", min: 71, max: 202, message: "Please enter a valid maximum heart rate achieved between 71 and 202." },
+            { id: "exang", type: "binary", message: "Please enter a valid value for exercise induced angina (0 or 1)." },
+            { id: "oldpeak", type: "decimal", message: "Please enter a valid ST depression induced by exercise (numeric value)." },
+            { id: "slope", type: "number", message: "Please enter a valid slope of the peak exercise ST segment (numeric value)." },
+            { id: "ca", type: "number", min: 0, max: 3, message: "Please enter a valid number of major vessels (0-3) colored by flourosopy." },
+            { id: "thal", type: "set", set: ["3", "6", "7"], message: "Please enter a valid value for Thal (3 = normal; 6 = fixed defect; 7 = reversible defect)." }
+        ];
+
+        for (var i = 0; i < fields.length; i++) {
+            var field = fields[i];
+            var input = document.getElementById(field.id);
+            var value = input.value.trim();
+
+            if (value === "" ||
+                (field.type === "number" && (!/^\d+$/.test(value) || value < field.min || value > field.max)) ||
+                (field.type === "binary" && value !== "0" && value !== "1") ||
+                (field.type === "decimal" && !/^\d+(\.\d+)?$/.test(value)) ||
+                (field.type === "set" && !field.set.includes(value))) {
+                alert(field.message);
+                input.focus();
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
 {% endblock %}
