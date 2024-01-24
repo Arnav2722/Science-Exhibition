@@ -211,6 +211,11 @@
     function validateNumericInput(inputId, fieldName) {
         var input = document.getElementById(inputId);
         var value = input.value.trim();
+        if (value === "") {
+            alert("Please fill the '" + fieldName + "' field.");
+            input.focus();
+            return false;
+        }
         if (!/^\d+(\.\d+)?$/.test(value)) {
             alert("Please enter a valid numeric value for '" + fieldName + "'.");
             input.focus();
@@ -229,6 +234,7 @@
         ];
         for (var i = 0; i < fields.length; i++) {
             if (!validateNumericInput(fields[i], fields[i])) {
+                alert("Fill the form");
                 return false;
             }
         }
