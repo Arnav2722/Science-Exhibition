@@ -60,4 +60,33 @@
     </div>
 </div>
 <br>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("diabetesForm").addEventListener("submit", function (event) {
+            if (!validateForm()) {
+                event.preventDefault();
+            }
+        });
+    });
+    function validateNumericInput(inputId, fieldName) {
+        var input = document.getElementById(inputId);
+        var value = input.value.trim();
+        if (!/^\d+(\.\d+)?$/.test(value)) {
+            alert("Please enter a valid numeric value for '" + fieldName + "'.");
+            input.focus();
+            return false;
+        }
+        return true;
+    }
+    function validateForm() {
+        var fields = ["pregnancies", "glucose", "bloodpressure", "skinthickness", "insulin", "bmi", "dpf", "age"];
+
+        for (var i = 0; i < fields.length; i++) {
+            if (!validateNumericInput(fields[i], fields[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
 {% endblock %}

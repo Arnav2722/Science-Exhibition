@@ -116,7 +116,6 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("myForm").addEventListener("submit", function (event) {
-            // Prevent the form from submitting if validation fails
             if (!validateForm()) {
                 event.preventDefault();
             }
@@ -124,124 +123,37 @@
     });
 
     function validateForm() {
-        // Validate Age
-        var ageInput = document.getElementById("age");
-        var ageValue = ageInput.value.trim();
-        if (!/^\d+$/.test(ageValue) || ageValue < 29 || ageValue > 77) {
-            alert("Please enter a valid age between 29 and 77.");
-            ageInput.focus();
-            return false;
-        }
+        var fields = [
+            { id: "age", type: "number", min: 29, max: 77, message: "Please enter a valid age between 29 and 77." },
+            { id: "sex", type: "binary", message: "Please enter a valid value for sex (0 for female, 1 for male)." },
+            { id: "cp", type: "number", min: 0, max: 3, message: "Please enter a valid chest pain type between 0 and 3." },
+            { id: "trestbps", type: "number", message: "Please enter a valid resting blood pressure (numeric value)." },
+            { id: "chol", type: "number", message: "Please enter a valid serum cholestoral (numeric value)." },
+            { id: "fbs", type: "binary", message: "Please enter a valid value for fasting blood sugar (0 or 1)." },
+            { id: "restecg", type: "binary", message: "Please enter a valid resting electrocardiographic results (0 or 1)." },
+            { id: "thalach", type: "number", min: 71, max: 202, message: "Please enter a valid maximum heart rate achieved between 71 and 202." },
+            { id: "exang", type: "binary", message: "Please enter a valid value for exercise induced angina (0 or 1)." },
+            { id: "oldpeak", type: "decimal", message: "Please enter a valid ST depression induced by exercise (numeric value)." },
+            { id: "slope", type: "number", message: "Please enter a valid slope of the peak exercise ST segment (numeric value)." },
+            { id: "ca", type: "number", min: 0, max: 3, message: "Please enter a valid number of major vessels (0-3) colored by flourosopy." },
+            { id: "thal", type: "set", set: ["3", "6", "7"], message: "Please enter a valid value for Thal (3 = normal; 6 = fixed defect; 7 = reversible defect)." }
+        ];
 
-        // Validate Sex
-        var sexInput = document.getElementById("sex");
-        var sexValue = sexInput.value.trim();
-        if (sexValue !== "0" && sexValue !== "1") {
-            alert("Please enter a valid value for sex (0 for female, 1 for male).");
-            sexInput.focus();
-            return false;
-        }
+        for (var i = 0; i < fields.length; i++) {
+            var field = fields[i];
+            var input = document.getElementById(field.id);
+            var value = input.value.trim();
 
-        // Validate Chest Pain Type
-        var cpInput = document.getElementById("cp");
-        var cpValue = cpInput.value.trim();
-        if (!/^\d+$/.test(cpValue) || cpValue < 0 || cpValue > 3) {
-            alert("Please enter a valid chest pain type between 0 and 3.");
-            cpInput.focus();
-            return false;
+            if (value === "" ||
+                (field.type === "number" && (!/^\d+$/.test(value) || value < field.min || value > field.max)) ||
+                (field.type === "binary" && value !== "0" && value !== "1") ||
+                (field.type === "decimal" && !/^\d+(\.\d+)?$/.test(value)) ||
+                (field.type === "set" && !field.set.includes(value))) {
+                alert(field.message);
+                input.focus();
+                return false;
+            }
         }
-
-        // Validate Resting Blood Pressure
-        var trestbpsInput = document.getElementById("trestbps");
-        var trestbpsValue = trestbpsInput.value.trim();
-        if (!/^\d+$/.test(trestbpsValue)) {
-            alert("Please enter a valid resting blood pressure (numeric value).");
-            trestbpsInput.focus();
-            return false;
-        }
-
-        // Validate Serum Cholestoral
-        var cholInput = document.getElementById("chol");
-        var cholValue = cholInput.value.trim();
-        if (!/^\d+$/.test(cholValue)) {
-            alert("Please enter a valid serum cholestoral (numeric value).");
-            cholInput.focus();
-            return false;
-        }
-
-        // Validate Fasting Blood Sugar
-        var fbsInput = document.getElementById("fbs");
-        var fbsValue = fbsInput.value.trim();
-        if (fbsValue !== "0" && fbsValue !== "1") {
-            alert("Please enter a valid value for fasting blood sugar (0 or 1).");
-            fbsInput.focus();
-            return false;
-        }
-
-        // Validate Resting Electrocardiographic Results
-        var restecgInput = document.getElementById("restecg");
-        var restecgValue = restecgInput.value.trim();
-        if (!/^\d+$/.test(restecgValue) || (restecgValue !== "0" && restecgValue !== "1")) {
-            alert("Please enter a valid resting electrocardiographic results (0 or 1).");
-            restecgInput.focus();
-            return false;
-        }
-
-        // Validate Maximum Heart Rate Achieved
-        var thalachInput = document.getElementById("thalach");
-        var thalachValue = thalachInput.value.trim();
-        if (!/^\d+$/.test(thalachValue) || thalachValue < 71 || thalachValue > 202) {
-            alert("Please enter a valid maximum heart rate achieved between 71 and 202.");
-            thalachInput.focus();
-            return false;
-        }
-
-        // Validate Exercise Induced Angina
-        var exangInput = document.getElementById("exang");
-        var exangValue = exangInput.value.trim();
-        if (exangValue !== "0" && exangValue !== "1") {
-            alert("Please enter a valid value for exercise induced angina (0 or 1).");
-            exangInput.focus();
-            return false;
-        }
-
-        // Validate ST Depression Induced by Exercise
-        var oldpeakInput = document.getElementById("oldpeak");
-        var oldpeakValue = oldpeakInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(oldpeakValue)) {
-            alert("Please enter a valid ST depression induced by exercise (numeric value).");
-            oldpeakInput.focus();
-            return false;
-        }
-
-        // Validate Slope of the Peak Exercise ST Segment
-        var slopeInput = document.getElementById("slope");
-        var slopeValue = slopeInput.value.trim();
-        if (!/^\d+$/.test(slopeValue)) {
-            alert("Please enter a valid slope of the peak exercise ST segment (numeric value).");
-            slopeInput.focus();
-            return false;
-        }
-
-        // Validate Number of Major Vessels Colored by Flourosopy
-        var caInput = document.getElementById("ca");
-        var caValue = caInput.value.trim();
-        if (!/^\d+$/.test(caValue) || caValue < 0 || caValue > 3) {
-            alert("Please enter a valid number of major vessels (0-3) colored by flourosopy.");
-            caInput.focus();
-            return false;
-        }
-
-        // Validate Thal
-        var thalInput = document.getElementById("thal");
-        var thalValue = thalInput.value.trim();
-        if (thalValue !== "3" && thalValue !== "6" && thalValue !== "7") {
-            alert("Please enter a valid value for Thal (3 = normal; 6 = fixed defect; 7 = reversible defect).");
-            thalInput.focus();
-            return false;
-        }
-
-        // If all validations pass, return true
         return true;
     }
 </script>

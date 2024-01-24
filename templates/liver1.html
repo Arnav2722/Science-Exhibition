@@ -86,4 +86,47 @@
         <div class="col-md-2"></div>
     </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("liverForm").addEventListener("submit", function (event) {
+            if (!validateForm()) {
+                event.preventDefault();
+            }
+        });
+    });
+    function validateInput(inputId, fieldName, type) {
+        var input = document.getElementById(inputId);
+        var value = input.value.trim();
+        if (type === "numeric" && !/^\d+(\.\d+)?$/.test(value)) {
+            alert("Please enter a valid numeric value for '" + fieldName + "'.");
+            input.focus();
+            return false;
+        } else if (type === "gender" && !(value === "0" || value === "1")) {
+            alert("Please enter a valid value for '" + fieldName + "'. (Male: 1, Female: 0)");
+            input.focus();
+            return false;
+        }
+        return true;
+    }
+    function validateForm() {
+        var fields = [
+            { id: "Age", type: "numeric" },
+            { id: "Total_Bilirubin", type: "numeric" },
+            { id: "Direct_Bilirubin", type: "numeric" },
+            { id: "Alkaline_Phosphotase", type: "numeric" },
+            { id: "Alamine_Aminotransferase", type: "numeric" },
+            { id: "Aspartate_Aminotransferase", type: "numeric" },
+            { id: "Total_Protiens", type: "numeric" },
+            { id: "Albumin", type: "numeric" },
+            { id: "Albumin_and_Globulin_Ratio", type: "numeric" },
+            { id: "Gender_Male", type: "gender" }
+        ];
+        for (var i = 0; i < fields.length; i++) {
+            if (!validateInput(fields[i].id, fields[i].id, fields[i].type)) {
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
 {% endblock %}

@@ -203,225 +203,35 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("myForm").addEventListener("submit", function (event) {
-            // Prevent the form from submitting if validation fails
             if (!validateForm()) {
                 event.preventDefault();
             }
         });
     });
-
+    function validateNumericInput(inputId, fieldName) {
+        var input = document.getElementById(inputId);
+        var value = input.value.trim();
+        if (!/^\d+(\.\d+)?$/.test(value)) {
+            alert("Please enter a valid numeric value for '" + fieldName + "'.");
+            input.focus();
+            return false;
+        }
+        return true;
+    }
     function validateForm() {
-        // Validate 'radius_mean'
-        var radiusMeanInput = document.getElementById("radius_mean");
-        var radiusMeanValue = radiusMeanInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(radiusMeanValue)) {
-            alert("Please enter a valid numeric value for 'radius_mean'.");
-            radiusMeanInput.focus();
-            return false;
+        var fields = [
+            "radius_mean", "texture_mean", "perimeter_mean", "area_mean", "smoothness_mean",
+            "compactness_mean", "concavity_mean", "concave_points_mean", "symmetry_mean",
+            "radius_se", "perimeter_se", "area_se", "compactness_se", "concavity_se",
+            "concave_points_se", "fractal_dimension_se", "radius_worst", "texture_worst",
+            "perimeter_worst", "area_worst", "smoothness_worst", "compactness_worst",
+            "concavity_worst", "concave_points_worst", "symmetry_worst", "fractal_dimension_worst"
+        ];
+        for (var i = 0; i < fields.length; i++) {
+            if (!validateNumericInput(fields[i], fields[i])) {
+                return false;
+            }
         }
-
-        // Validate 'texture_mean'
-        var textureMeanInput = document.getElementById("texture_mean");
-        var textureMeanValue = textureMeanInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(textureMeanValue)) {
-            alert("Please enter a valid numeric value for 'texture_mean'.");
-            textureMeanInput.focus();
-            return false;
-        }
-
-        // Validate 'perimeter_mean'
-        var perimeterMeanInput = document.getElementById("perimeter_mean");
-        var perimeterMeanValue = perimeterMeanInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(perimeterMeanValue)) {
-            alert("Please enter a valid numeric value for 'perimeter_mean'.");
-            perimeterMeanInput.focus();
-            return false;
-        }
-
-        var areaMeanInput = document.getElementById("area_mean");
-        var areaMeanValue = areaMeanInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(areaMeanValue)) {
-            alert("Please enter a valid numeric value for 'area_mean'.");
-            areaMeanInput.focus();
-            return false;
-        }
-
-        var smoothnessMeanInput = document.getElementById("smoothness_mean");
-        var smoothnessMeanValue = smoothnessMeanInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(smoothnessMeanValue)) {
-            alert("Please enter a valid numeric value for 'smoothness_mean'.");
-            smoothnessMeanInput.focus();
-            return false;
-        }
-
-        var compactnessMeanInput = document.getElementById("compactness_mean");
-        var compactnessMeanValue = compactnessMeanInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(compactnessMeanValue)) {
-            alert("Please enter a valid numeric value for 'compactness_mean'.");
-            compactnessMeanInput.focus();
-            return false;
-        }
-
-        var concavityMeanInput = document.getElementById("concavity_mean");
-        var concavityMeanValue = concavityMeanInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(concavityMeanValue)) {
-            alert("Please enter a valid numeric value for 'concavity_mean'.");
-            concavityMeanInput.focus();
-            return false;
-        }
-
-        var concavePointsMeanInput = document.getElementById("concave_points_mean");
-        var concavePointsMeanValue = concavePointsMeanInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(concavePointsMeanValue)) {
-            alert("Please enter a valid numeric value for 'concave_points_mean'.");
-            concavePointsMeanInput.focus();
-            return false;
-        }
-
-        var symmetryMeanInput = document.getElementById("symmetry_mean");
-        var symmetryMeanValue = symmetryMeanInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(symmetryMeanValue)) {
-            alert("Please enter a valid numeric value for 'symmetry_mean'.");
-            symmetryMeanInput.focus();
-            return false;
-        }
-
-        var radiusSeInput = document.getElementById("radius_se");
-        var radiusSeValue = radiusSeInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(radiusSeValue)) {
-            alert("Please enter a valid numeric value for 'radius_se'.");
-            radiusSeInput.focus();
-            return false;
-        }
-
-        var perimeterSeInput = document.getElementById("perimeter_se");
-        var perimeterSeValue = perimeterSeInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(perimeterSeValue)) {
-            alert("Please enter a valid numeric value for 'perimeter_se'.");
-            perimeterSeInput.focus();
-            return false;
-        }
-
-        var areaSeInput = document.getElementById("area_se");
-        var areaSeValue = areaSeInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(areaSeValue)) {
-            alert("Please enter a valid numeric value for 'area_se'.");
-            areaSeInput.focus();
-            return false;
-        }
-
-        var compactnessSeInput = document.getElementById("compactness_se");
-        var compactnessSeValue = compactnessSeInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(compactnessSeValue)) {
-            alert("Please enter a valid numeric value for 'compactness_se'.");
-            compactnessSeInput.focus();
-            return false;
-        }
-
-        var concavitySeInput = document.getElementById("concavity_se");
-        var concavitySeValue = concavitySeInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(concavitySeValue)) {
-            alert("Please enter a valid numeric value for 'concavity_se'.");
-            concavitySeInput.focus();
-            return false;
-        }
-
-        var concavePointsSeInput = document.getElementById("concave_points_se");
-        var concavePointsSeValue = concavePointsSeInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(concavePointsSeValue)) {
-            alert("Please enter a valid numeric value for 'concave_points_se'.");
-            concavePointsSeInput.focus();
-            return false;
-        }
-
-        var fractalDimensionSeInput = document.getElementById("fractal_dimension_se");
-        var fractalDimensionSeValue = fractalDimensionSeInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(fractalDimensionSeValue)) {
-            alert("Please enter a valid numeric value for 'fractal_dimension_se'.");
-            fractalDimensionSeInput.focus();
-            return false;
-        }
-
-        var radiusWorstInput = document.getElementById("radius_worst");
-        var radiusWorstValue = radiusWorstInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(radiusWorstValue)) {
-            alert("Please enter a valid numeric value for 'radius_worst'.");
-            radiusWorstInput.focus();
-            return false;
-        }
-
-        var textureWorstInput = document.getElementById("texture_worst");
-        var textureWorstValue = textureWorstInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(textureWorstValue)) {
-            alert("Please enter a valid numeric value for 'texture_worst'.");
-            textureWorstInput.focus();
-            return false;
-        }
-
-        var perimeterWorstInput = document.getElementById("perimeter_worst");
-        var perimeterWorstValue = perimeterWorstInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(perimeterWorstValue)) {
-            alert("Please enter a valid numeric value for 'perimeter_worst'.");
-            perimeterWorstInput.focus();
-            return false;
-        }
-
-        var areaWorstInput = document.getElementById("area_worst");
-        var areaWorstValue = areaWorstInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(areaWorstValue)) {
-            alert("Please enter a valid numeric value for 'area_worst'.");
-            areaWorstInput.focus();
-            return false;
-        }
-
-        var smoothnessWorstInput = document.getElementById("smoothness_worst");
-        var smoothnessWorstValue = smoothnessWorstInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(smoothnessWorstValue)) {
-            alert("Please enter a valid numeric value for 'smoothness_worst'.");
-            smoothnessWorstInput.focus();
-            return false;
-        }
-
-        var compactnessWorstInput = document.getElementById("compactness_worst");
-        var compactnessWorstValue = compactnessWorstInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(compactnessWorstValue)) {
-            alert("Please enter a valid numeric value for 'compactness_worst'.");
-            compactnessWorstInput.focus();
-            return false;
-        }
-
-        var concavityWorstInput = document.getElementById("concavity_worst");
-        var concavityWorstValue = concavityWorstInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(concavityWorstValue)) {
-            alert("Please enter a valid numeric value for 'concavity_worst'.");
-            concavityWorstInput.focus();
-            return false;
-        }
-
-        var concavePointsWorstInput = document.getElementById("concave_points_worst");
-        var concavePointsWorstValue = concavePointsWorstInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(concavePointsWorstValue)) {
-            alert("Please enter a valid numeric value for 'concave_points_worst'.");
-            concavePointsWorstInput.focus();
-            return false;
-        }
-
-        var symmetryWorstInput = document.getElementById("symmetry_worst");
-        var symmetryWorstValue = symmetryWorstInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(symmetryWorstValue)) {
-            alert("Please enter a valid numeric value for 'symmetry_worst'.");
-            symmetryWorstInput.focus();
-            return false;
-        }
-
-        var fractalDimensionWorstInput = document.getElementById("fractal_dimension_worst");
-        var fractalDimensionWorstValue = fractalDimensionWorstInput.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(fractalDimensionWorstValue)) {
-            alert("Please enter a valid numeric value for 'fractal_dimension_worst'.");
-            fractalDimensionWorstInput.focus();
-            return false;
-        }
-        // If all validations pass, return true
         return true;
     }
 </script>
