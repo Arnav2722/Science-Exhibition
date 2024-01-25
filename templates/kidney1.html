@@ -12,21 +12,21 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="age"
+                                <input style="border: 1px solid black;" class="form-control" type="number" name="age"
                                     placeholder="age">
                                 <p>Age(numerical) in years</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="bp"
+                                <input style="border: 1px solid black;" class="form-control" type="number" name="bp"
                                     placeholder="bp">
                                 <p>Blood Pressure(numerical) in mm/Hg</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="al"
+                                <input style="border: 1px solid black;" class="form-control" type="number" name="al"
                                     placeholder="al">
                                 <p>Albumin(nominal)-(0,1,2,3,4,5)</p>
                             </div>
@@ -35,7 +35,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="su"
+                                <input style="border: 1px solid black;" class="form-control" type="number" name="su"
                                     placeholder="su">
                                 <p>Sugar(nominal)-(0,1,2,3,4,5)</p>
                             </div>
@@ -72,7 +72,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="bgr"
+                                <input style="border: 1px solid black;" class="form-control" type="number" name="bgr"
                                     placeholder="bgr">
                                 <p>Blood Glucose Random(numerical) in mgs/dl</p>
                             </div>
@@ -81,7 +81,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="bu"
+                                <input style="border: 1px solid black;" class="form-control" type="number" name="bu"
                                     placeholder="bu">
                                 <p>Blood Urea(numerical) in mgs/dl</p>
                             </div>
@@ -105,7 +105,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input style="border: 1px solid black;" class="form-control" type="text" name="wc"
+                                <input style="border: 1px solid black;" class="form-control" type="number" name="wc"
                                     placeholder="wc">
                                 <p>White Blood Cell Count(numerical) in cells/cumm</p>
                             </div>
@@ -156,59 +156,62 @@
     </div>
 </div>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("kidneyForm").addEventListener("submit", function (event) {
-            if (!validateForm()) {
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('kidneyForm').addEventListener('submit', function (event) {
+            var fields = [
+                { name: 'age', type: 'numeric', message: 'Please enter a valid numerical age.' },
+                { name: 'bp', type: 'numeric', message: 'Please enter a valid numerical blood pressure.' },
+                { name: 'al', type: 'nominal', options: ['0', '1', '2', '3', '4', '5'], message: 'Please enter a valid value for Albumin (0, 1, 2, 3, 4, 5).' },
+                { name: 'su', type: 'nominal', options: ['0', '1', '2', '3', '4', '5'], message: 'Please enter a valid value for Sugar (0, 1, 2, 3, 4, 5).' },
+                { name: 'rbc', type: 'nominal', options: ['normal', 'abnormal'], message: 'Please enter a valid value for Red Blood Cells (normal, abnormal).' },
+                { name: 'pc', type: 'nominal', options: ['normal', 'abnormal'], message: 'Please enter a valid value for Pus Cells (normal, abnormal).' },
+                { name: 'pcc', type: 'nominal', options: ['present', 'notpresent'], message: 'Please enter a valid value for Pus Cell clamps (present, notpresent).' },
+                { name: 'ba', type: 'nominal', options: ['present', 'notpresent'], message: 'Please enter a valid value for Bacteria (present, notpresent).' },
+                { name: 'bgr', type: 'numeric', message: 'Please enter a valid numerical Blood Glucose Random(numerical) in mgs/dl.' },
+                { name: 'bu', type: 'numeric', message: 'Please enter a valid numerical Blood Urea(numerical) in mgs/dl.' },
+                { name: 'sc', type: 'float', message: 'Please enter a valid numerical Serum Creatinine(numerical) in mgs/dl.' },
+                { name: 'pot', type: 'float', message: 'Please enter a valid numerical Potassium(numerical) in mEq/L.' },
+                { name: 'wc', type: 'numeric', message: 'Please enter a valid numerical White Blood Cell Count(numerical) in cells/cumm.' },
+                { name: 'htn', type: 'nominal', options: ['yes', 'no'], message: 'Please enter a valid value for Hypertension(nominal)-(yes,no).' },
+                { name: 'dm', type: 'nominal', options: ['yes', 'no'], message: 'Please enter a valid value for Diabetes Mellitus(nominal)-(yes,no).' },
+                { name: 'cad', type: 'nominal', options: ['yes', 'no'], message: 'Please enter a valid value for Coronary Artery Disease(nominal)-(yes,no).' },
+                { name: 'pe', type: 'nominal', options: ['yes', 'no'], message: 'Please enter a valid value for Pedal Edema(nominal)-(yes,no).' },
+                { name: 'ane', type: 'nominal', options: ['yes', 'no'], message: 'Please enter a valid value for Anemia(nominal)-(yes,no).' }
+            ];
+
+            var valid = fields.every(function (field) {
+                var input = document.getElementsByName(field.name)[0];
+
+                if ((field.type === 'numeric' && !isNumeric(input.value)) ||
+                    (field.type === 'float' && !isFloat(input.value)) ||
+                    (field.type === 'nominal' && !isValidNominalValue(input, field.options))) {
+                    alert(field.message);
+                    return false;
+                }
+                return true;
+            });
+
+            if (!valid) {
                 event.preventDefault();
             }
         });
+
+        function isNumeric(value) {
+            return /^\d+$/.test(value);
+        }
+
+        function isFloat(value) {
+            return Number(value) == value && value % 1 !== 0;
+        }
+
+        function isValidNominalValue(input, validOptions) {
+            var value = input.value.toLowerCase();
+            if (value === "not present") {
+                value = "notpresent";
+                input.value = value;
+            }
+            return validOptions.includes(value);
+        }
     });
-    function validateNumericInput(inputId, fieldName) {
-        var input = document.getElementById(inputId);
-        var value = input.value.trim();
-        if (!/^\d+(\.\d+)?$/.test(value)) {
-            alert("Please enter a valid numeric value for '" + fieldName + "'.");
-            input.focus();
-            return false;
-        }
-        return true;
-    }
-    function validateNominalInput(inputId, fieldName, options) {
-        var input = document.getElementById(inputId);
-        var value = input.value.trim().toLowerCase();
-        if (!options.includes(value)) {
-            alert("Please enter a valid value for '" + fieldName + "'.");
-            input.focus();
-            return false;
-        }
-        return true;
-    }
-    function validateForm() {
-        var numericFields = ["age", "bp", "bgr", "bu", "sc", "pot", "wc"];
-        var nominalFields = [
-            { id: "al", options: ["0", "1", "2", "3", "4", "5"] },
-            { id: "su", options: ["0", "1", "2", "3", "4", "5"] },
-            { id: "rbc", options: ["normal", "abnormal"] },
-            { id: "pc", options: ["normal", "abnormal"] },
-            { id: "pcc", options: ["present", "notpresent"] },
-            { id: "ba", options: ["present", "notpresent"] },
-            { id: "htn", options: ["yes", "no"] },
-            { id: "dm", options: ["yes", "no"] },
-            { id: "cad", options: ["yes", "no"] },
-            { id: "pe", options: ["yes", "no"] },
-            { id: "ane", options: ["yes", "no"] }
-        ];
-        for (var i = 0; i < numericFields.length; i++) {
-            if (!validateNumericInput(numericFields[i], numericFields[i])) {
-                return false;
-            }
-        }
-        for (var i = 0; i < nominalFields.length; i++) {
-            if (!validateNominalInput(nominalFields[i].id, nominalFields[i].id, nominalFields[i].options)) {
-                return false;
-            }
-        }
-        return true;
-    }
 </script>
 {% endblock %}
