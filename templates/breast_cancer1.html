@@ -208,33 +208,51 @@
             }
         });
     });
-    function validateNumericInput(inputId, fieldName) {
-        var input = document.getElementById(inputId);
-        var value = input.value.trim();
-        if (value === "") {
-            alert("Please fill the '" + fieldName + "' field.");
-            input.focus();
-            return false;
-        }
-        if (!/^\d+(\.\d+)?$/.test(value)) {
-            alert("Please enter a valid numeric value for '" + fieldName + "'.");
-            input.focus();
-            return false;
-        }
-        return true;
-    }
+
     function validateForm() {
         var fields = [
-            "radius_mean", "texture_mean", "perimeter_mean", "area_mean", "smoothness_mean",
-            "compactness_mean", "concavity_mean", "concave_points_mean", "symmetry_mean",
-            "radius_se", "perimeter_se", "area_se", "compactness_se", "concavity_se",
-            "concave_points_se", "fractal_dimension_se", "radius_worst", "texture_worst",
-            "perimeter_worst", "area_worst", "smoothness_worst", "compactness_worst",
-            "concavity_worst", "concave_points_worst", "symmetry_worst", "fractal_dimension_worst"
+            { id: "radius_mean", type: "number", message: "Please enter a valid numeric value for 'radius_mean'." },
+            { id: "texture_mean", type: "number", message: "Please enter a valid numeric value for 'texture_mean'." },
+            { id: "perimeter_mean", type: "number", message: "Please enter a valid numeric value for 'perimeter_mean'." },
+            { id: "area_mean", type: "number", message: "Please enter a valid numeric value for 'area_mean'." },
+            { id: "smoothness_mean", type: "number", message: "Please enter a valid numeric value for 'smoothness_mean'." },
+            { id: "compactness_mean", type: "number", message: "Please enter a valid numeric value for 'compactness_mean'." },
+            { id: "concavity_mean", type: "number", message: "Please enter a valid numeric value for 'concavity_mean'." },
+            { id: "concave_points_mean", type: "number", message: "Please enter a valid numeric value for 'concave_points_mean'." },
+            { id: "symmetry_mean", type: "number", message: "Please enter a valid numeric value for 'symmetry_mean'." },
+            { id: "radius_se", type: "number", message: "Please enter a valid numeric value for 'radius_se'." },
+            { id: "perimeter_se", type: "number", message: "Please enter a valid numeric value for 'perimeter_se'." },
+            { id: "area_se", type: "number", message: "Please enter a valid numeric value for 'area_se'." },
+            { id: "compactness_se", type: "number", message: "Please enter a valid numeric value for 'compactness_se'." },
+            { id: "concavity_se", type: "number", message: "Please enter a valid numeric value for 'concavity_se'." },
+            { id: "concave_points_se", type: "number", message: "Please enter a valid numeric value for 'concave_points_se'." },
+            { id: "fractal_dimension_se", type: "number", message: "Please enter a valid numeric value for 'fractal_dimension_se'." },
+            { id: "radius_worst", type: "number", message: "Please enter a valid numeric value for 'radius_worst'." },
+            { id: "texture_worst", type: "number", message: "Please enter a valid numeric value for 'texture_worst'." },
+            { id: "perimeter_worst", type: "number", message: "Please enter a valid numeric value for 'perimeter_worst'." },
+            { id: "area_worst", type: "number", message: "Please enter a valid numeric value for 'area_worst'." },
+            { id: "smoothness_worst", type: "number", message: "Please enter a valid numeric value for 'smoothness_worst'." },
+            { id: "compactness_worst", type: "number", message: "Please enter a valid numeric value for 'compactness_worst'." },
+            { id: "concavity_worst", type: "number", message: "Please enter a valid numeric value for 'concavity_worst'." },
+            { id: "concave_points_worst", type: "number", message: "Please enter a valid numeric value for 'concave_points_worst'." },
+            { id: "symmetry_worst", type: "number", message: "Please enter a valid numeric value for 'symmetry_worst'." },
+            { id: "fractal_dimension_worst", type: "number", message: "Please enter a valid numeric value for 'fractal_dimension_worst'." },
         ];
+
         for (var i = 0; i < fields.length; i++) {
-            if (!validateNumericInput(fields[i], fields[i])) {
-                alert("Fill the form");
+            var field = fields[i];
+            var input = document.getElementById(field.id);
+            var value = input.value.trim();
+
+            if (value === "") {
+                alert("Please fill out the '" + field.id + "' field.");
+                input.focus();
+                return false;
+            } else if ((field.type === "number" && !/^\d+(\.\d+)?$/.test(value)) ||
+                (field.type === "binary" && value !== "0" && value !== "1") ||
+                (field.type === "set" && !field.set.includes(value))) {
+                alert(field.message);
+                input.focus();
                 return false;
             }
         }
