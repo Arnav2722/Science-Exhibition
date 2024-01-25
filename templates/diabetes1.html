@@ -14,6 +14,15 @@
                 <form id="diabetesForm" class="form-horizontal" action="{{ url_for('diabetesPredictPage') }}"
                     method="POST">
                     <div class="form-group">
+                        <label for="Gender">Gender</label>
+                        <select id="gender" name="gender">
+                            <option value="Select option"></option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
                         <input style="border: 1px solid black;" class="form-control" type="text" name="pregnancies"
                             placeholder="Number of Pregnancies eg. 0">
                         <p>Number of times pregnant</p>
