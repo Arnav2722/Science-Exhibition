@@ -10,7 +10,7 @@
             <center>
                 <h1 style="color: #ffffff;">Diabetes Predictor</h1>
             </center>
-            <div class="card card-body" style="border: 2px solid black;">
+            <div class="card card-body bg-dark" style="border: 2px solid black;color: #ffffff;">
                 <div class="form-group">
                     <label for="Gender"><b>Gender</b></label>
                     <select id="gender" name="gender" style="border: 2px solid #000000; border-radius: 5px;">
@@ -20,7 +20,7 @@
                     </select>
                 </div>
                 <br>
-                <form id="diabetesForm" class="form-horizontal" action="{{ url_for('diabetesPredictPage') }}"
+                <form id="diabetesForm" class="form-horizontal bg-dark" action="{{ url_for('diabetesPredictPage') }}"
                     method="POST">
                     <div class="form-group">
                         <input style="border: 2px solid black;" class="form-control" type="text" name="pregnancies"
