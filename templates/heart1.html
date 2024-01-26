@@ -5,7 +5,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <center>
-                <h1>Heart Disease Predictor</h1>
+                <h1 style="color: #ffffff">Heart Disease Predictor</h1>
             </center>
             <div class="card card-body" style="border: 1px solid black;">
                 <form id="myForm" class="form-horizontal" action="{{ url_for('heartPredictPage') }}" method="POST">
@@ -14,13 +14,14 @@
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="number" name="age"
                                     id="age" placeholder="age">
-                                <p>age in years eg: 29-77</p>
+                                <p><b>Age in years eg: 29-77</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="number" name="sex"
                                     id="sex" placeholder="sex(Male:1, female:0)">
+                                <p><b>Gender</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -28,7 +29,7 @@
                                 <input style="border: 1px solid black;" class="form-control" type="number" name="cp"
                                     id="cp" placeholder="chest pain type">
                             </div>
-                            <p>0 to 3 as worst</p>
+                            <p><b>0 to 3 as worst</b></p>
                         </div>
                     </div>
                     <div class="row">
@@ -36,20 +37,21 @@
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="number"
                                     name="trestbps" id="trestbps" placeholder="resting blood pressure in mm Hg">
+                                <p><b>Resting blood pressure in mm Hg</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="number" name="chol"
                                     id="chol" placeholder="serum cholestoral in mg/dl">
-                                <p>serum cholestoral in mg/dl</p>
+                                <p><b>Serum cholestoral in mg/dl</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="number" name="fbs"
                                     id="fbs" placeholder="fasting blood sugar 120 mg/dl(1 = true; 0 = false)">
-                                <p>(fasting blood sugar 120 mg/dl) (1 = true; 0 = false)</p>
+                                <p><b>(fasting blood sugar 120 mg/dl) (1 = true; 0 = false)</b></p>
                             </div>
                         </div>
                     </div>
@@ -58,13 +60,14 @@
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="number"
                                     name="restecg" id="restecg" placeholder="resting electrocardiographic results">
-                                <p>0, 1</p>
+                                <p><b>Resting electrocardiographic results(0, 1)</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="number"
                                     name="thalach" id="thalach" placeholder="maximum heart rate achieved">
+                                <p><b>Maximum heart rate achieved</b></p>
                                 <p>eg: 71- 202</p>
                             </div>
                         </div>
@@ -72,6 +75,7 @@
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="number" name="exang"
                                     id="exang" placeholder="exercise induced angina (1 = yes; 0 = no)">
+                                <p><b>Exercise induced angina</b></p>
                             </div>
                         </div>
                     </div>
@@ -81,18 +85,21 @@
                                 <input style="border: 1px solid black;" class="form-control" type="number"
                                     name="oldpeak" id="oldpeak"
                                     placeholder="ST depression induced by exercise relative to rest">
+                                <p><b>ST depression induced by exercise</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="number" name="slope"
                                     id="slope" placeholder="the slope of the peak exercise ST segment">
+                                <p><b>The slope of the peak</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="number" name="ca"
                                     id="ca" placeholder="number of major vessels (0-3) colored by flourosopy">
+                                <p><b>Number of major vessels (0-3) colored by flourosopy</b></p>
                             </div>
                         </div>
                     </div>
@@ -102,11 +109,12 @@
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="number" name="thal"
                                     id="thal" placeholder="3 = normal; 6 = fixed defect; 7 = reversable defect">
+                                <p><b>Eg:- 3,6,7</b></p>
                             </div>
                         </div>
                         <div class="col-md-4"></div>
                     </div>
-                    <input type="submit" class="btn btn-info btn-block" value="Predict">
+                    <input type="submit" class="btn btn-info btn-block" value="Predict" style="font-size: large;">
                 </form>
             </div>
         </div>

@@ -5,7 +5,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <center>
-                <h1>Breast Cancer Predictor</h1>
+                <h1 style="color:#ffffff">Breast Cancer Predictor</h1>
             </center>
             <div class="card card-body" style="border: 1px solid black;">
                 <form id="myForm" class="form-horizontal" action="{{ url_for('cancerPredictPage') }}" method="POST">
@@ -14,21 +14,21 @@
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="radius_mean" placeholder="radius_mean">
-                                <p>mean of distances from center to points on the perimeter</p>
+                                <p><b>mean of distances from center to points on the perimeter</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="texture_mean" placeholder="texture_mean">
-                                <p>standard deviation of gray-scale values</p>
+                                <p><b>standard deviation of gray-scale values</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="perimeter_mean" placeholder="perimeter_mean">
-                                <p>mean size of the core tumor</p>
+                                <p><b>mean size of the core tumor</b></p>
                             </div>
                         </div>
                     </div>
@@ -37,21 +37,21 @@
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="area_mean" placeholder="area_mean">
-
+                                <p><b>provide the area mean</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="smoothness_mean" placeholder="smoothness_mean">
-                                <p>mean of local variation in radius lengths</p>
+                                <p><b>mean of local variation in radius lengths</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="compactness_mean" placeholder="compactness_mean">
-                                <p>mean of perimeter^2 / area - 1.0</p>
+                                <p><b>mean of perimeter^2 / area - 1.0</b></p>
                             </div>
                         </div>
                     </div>
@@ -60,21 +60,21 @@
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="concavity_mean" placeholder="concavity_mean">
-                                <p>mean of severity of concave portions of the contour</p>
+                                <p><b>mean of severity of concave portions of the contour</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="concave_points_mean" placeholder="concave_points_mean">
-                                <p>mean for number of concave portions of the contour</p>
+                                <p><b>mean for number of concave portions of the contour</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="symmetry_mean" placeholder="symmetry_mean">
-
+                                <p><b>symmetry_mean</b></p>
                             </div>
                         </div>
                     </div>
@@ -83,18 +83,21 @@
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="radius_se" placeholder="radius_se">
+                                <p><b>radius_se</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="perimeter_se" placeholder="perimeter_se">
+                                <p><b>perimeter_se</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text" name="area_se"
                                     placeholder="area_se">
+                                <p><b>area_se</b></p>
                             </div>
                         </div>
                     </div>
@@ -103,18 +106,21 @@
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="compactness_se" placeholder="compactness_se">
+                                <p><b>compactness_se</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="concavity_se" placeholder="concavity_se">
+                                <p><b>concavity_se</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="concave_points_se" placeholder="concave_points_se">
+                                <p><b>concave_points_se</b></p>
                             </div>
                         </div>
                     </div>
@@ -123,18 +129,21 @@
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="fractal_dimension_se" placeholder="fractal_dimension_se">
+                                <p><b>fractal_dimension_se</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="radius_worst" placeholder="radius_worst">
+                                <p><b>radius_worst</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="texture_worst" placeholder="texture_worst">
+                                <p><b>texture_worst</b></p>
                             </div>
                         </div>
                     </div>
@@ -143,18 +152,21 @@
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="perimeter_worst" placeholder="perimeter_worst">
+                                <p><b>perimeter_worst</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="area_worst" placeholder="area_worst">
+                                <p><b>area_worst</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="smoothness_worst" placeholder="smoothness_worst">
+                                <p><b>smoothness_worst</b></p>
                             </div>
                         </div>
                     </div>
@@ -163,18 +175,21 @@
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="compactness_worst" placeholder="compactness_worst">
+                                <p><b>compactness_worst</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="concavity_worst" placeholder="concavity_worst">
+                                <p><b>concavity_worst</b></p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="concave_points_worst" placeholder="concave_points_worst">
+                                <p><b>concave_points_worst</b></p>
                             </div>
                         </div>
                     </div>
@@ -183,16 +198,18 @@
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="symmetry_worst" placeholder="symmetry_worst">
+                                <p><b>symmetry_worst</b></p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <input style="border: 1px solid black;" class="form-control" type="text"
                                     name="fractal_dimension_worst" placeholder="fractal_dimension_worst">
+                                <p><b>fractal_dimension_worst</b></p>
                             </div>
                         </div>
                     </div>
-                    <input type="submit" class="btn btn-info btn-block" value="Predict">
+                    <input type="submit" class="btn btn-info btn-block" value="Predict" style="font-size: large;">
                 </form>
             </div>
         </div>

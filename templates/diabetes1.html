@@ -8,12 +8,12 @@
         <div class="col-md-3"></div>
         <div class="col-md-6">
             <center>
-                <h1>Diabetes Predictor</h1>
+                <h1 style="color: #ffffff;">Diabetes Predictor</h1>
             </center>
-            <div class="card card-body" style="border: 1px solid black;">
+            <div class="card card-body" style="border: 2px solid black;">
                 <div class="form-group">
-                    <label for="Gender">Gender</label>
-                    <select id="gender" name="gender">
+                    <label for="Gender"><b>Gender</b></label>
+                    <select id="gender" name="gender" style="border: 2px solid #000000; border-radius: 5px;">
                         <option value="Select option"></option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
@@ -23,46 +23,46 @@
                 <form id="diabetesForm" class="form-horizontal" action="{{ url_for('diabetesPredictPage') }}"
                     method="POST">
                     <div class="form-group">
-                        <input style="border: 1px solid black;" class="form-control" type="text" name="pregnancies"
+                        <input style="border: 2px solid black;" class="form-control" type="text" name="pregnancies"
                             placeholder="Number of Pregnancies eg. 0">
-                        <p>Number of times pregnant</p>
+                        <p><b>Number of times pregnant</b></p>
                     </div>
                     <div class="form-group">
-                        <input style="border: 1px solid black;" class="form-control" type="text" name="glucose"
+                        <input style="border: 2px solid black;" class="form-control" type="text" name="glucose"
                             placeholder="Glucose (mg/dL) eg. 80">
-                        <p>Plasma glucose concentration a 2 hours in an oral glucose tolerance test</p>
+                        <p><b>Plasma glucose concentration a 2 hours in an oral glucose tolerance test</b></p>
                     </div>
                     <div class="form-group">
-                        <input style="border: 1px solid black;" class="form-control" type="text" name="bloodpressure"
+                        <input style="border: 2px solid black;" class="form-control" type="text" name="bloodpressure"
                             placeholder="Blood Pressure (mmHg) eg. 80">
-                        <p>Diastolic blood pressure (mm Hg)</p>
+                        <p><b>Diastolic blood pressure (mm Hg)</b></p>
                     </div>
                     <div class="form-group">
-                        <input style="border: 1px solid black;" class="form-control" type="text" name="skinthickness"
+                        <input style="border: 2px solid black;" class="form-control" type="text" name="skinthickness"
                             placeholder="Skin Thickness (mm) eg. 20">
-                        <p>Triceps skin fold thickness (mm)</p>
+                        <p><b>Triceps skin fold thickness (mm)</b></p>
                     </div>
                     <div class="form-group">
-                        <input style="border: 1px solid black;" class="form-control" type="text" name="insulin"
+                        <input style="border: 2px solid black;" class="form-control" type="text" name="insulin"
                             placeholder="Insulin Level (IU/mL) eg. 80">
-                        <p>2-Hour serum insulin (mu U/ml)</p>
+                        <p><b>2-Hour serum insulin (mu U/ml)</b></p>
                     </div>
                     <div class="form-group">
-                        <input style="border: 1px solid black;" class="form-control" type="text" name="bmi"
+                        <input style="border: 2px solid black;" class="form-control" type="text" name="bmi"
                             placeholder="Body Mass Index (kg/m²) eg. 23.1">
-                        <p>Body mass index (weight in kg/(height in m)^2)</p>
+                        <p><b>Body mass index (weight in kg/(height in m)^2)</b></p>
                     </div>
                     <div class="form-group">
-                        <input style="border: 1px solid black;" class="form-control" type="text" name="dpf"
+                        <input style="border: 2px solid black;" class="form-control" type="text" name="dpf"
                             placeholder="Diabetes Pedigree Function eg. 0.52">
-                        <p>Diabetes pedigree function</p>
+                        <p><b>Diabetes pedigree function</b></p>
                     </div>
                     <div class="form-group">
-                        <input style="border: 1px solid black;" class="form-control" type="text" name="age"
+                        <input style="border: 2px solid black;" class="form-control" type="text" name="age"
                             placeholder="Age (years) eg. 34">
-                        <p>Age (years)</p>
+                        <p><b>Age (years)</b></p>
                     </div>
-                    <input type="submit" class="btn btn-info btn-block" value="Predict">
+                    <input type="submit" class="btn btn-info btn-block" value="Predict" style="font-size: large;">
                 </form>
             </div>
         </div>
