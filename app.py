@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, redirect
+from flask import Flask, render_template, request
 import pickle
 import numpy as np
 from PIL import Image
@@ -8,26 +8,64 @@ app = Flask(__name__)
 
 
 def predict(values, dic):
+    dictonary = {
+        "rbc": {
+            "abnormal": 1,
+            "normal": 0,
+        },
+        "pc": {
+            "abnormal": 1,
+            "normal": 0,
+        },
+        "pcc": {
+            "present": 1,
+            "notpresent": 0,
+        },
+        "ba": {
+            "notpresent": 0,
+            "present": 1,
+        },
+        "htn": {
+            "yes": 1,
+            "no": 0,
+        },
+        "dm": {
+            "yes": 1,
+            "no": 0,
+        },
+        "cad": {
+            "yes": 1,
+            "no": 0,
+        },
+        "appet": {
+            "good": 1,
+            "poor": 0,
+        },
+        "pe": {
+            "yes": 1,
+            "no": 0,
+        },
+        "ane": {
+            "yes": 1,
+            "no": 0,
+        },
+    }
+    for i in range(len(values)):
+        if values[i] in dictonary[dic[i]]:
+            values[i] = dictonary[dic[i]][values[i]]
     if len(values) == 8:
         model = pickle.load(open("models/diabetes.pkl", "rb"))
-        values = np.asarray(values)
-        return model.predict(values.reshape(1, -1))[0]
     elif len(values) == 26:
         model = pickle.load(open("models/breast_cancer.pkl", "rb"))
-        values = np.asarray(values)
-        return model.predict(values.reshape(1, -1))[0]
     elif len(values) == 13:
         model = pickle.load(open("models/heart.pkl", "rb"))
-        values = np.asarray(values)
-        return model.predict(values.reshape(1, -1))[0]
     elif len(values) == 18:
         model = pickle.load(open("models/kidney.pkl", "rb"))
-        values = np.asarray(values)
-        return model.predict(values.reshape(1, -1))[0]
     elif len(values) == 10:
         model = pickle.load(open("models/liver.pkl", "rb"))
-        values = np.asarray(values)
-        return model.predict(values.reshape(1, -1))[0]
+
+    values = np.asarray(values, dtype=float)
+    return model.predict(values.reshape(1, -1))[0]
 
 
 @app.route("/")
@@ -136,10 +174,16 @@ def kidneyPredictPage():
     try:
         if request.method == "POST":
             to_predict_dict = request.form.to_dict()
-            to_predict_list = list(map(float, list(to_predict_dict.values())))
+            to_predict_list = []
+            for val in list(to_predict_dict.values()):
+                try:
+                    to_predict_list.append(float(val))
+                except ValueError:
+                    message = f"Invalid value: {val}. Please enter valid data."
+                    return render_template("index1.html", message=message)
             pred = predict(to_predict_list, to_predict_dict)
-    except:
-        message = "Please enter valid Data"
+    except Exception as e:
+        message = f"An error occurred: {str(e)}"
         return render_template("index1.html", message=message)
 
     return render_template("kidney_predict.html", pred=pred)

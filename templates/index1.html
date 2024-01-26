@@ -1,9 +1,9 @@
 {% extends 'testing.html' %}
 {% block content %}
-{% if message %}
-<div class="alert alert-danger">{{ message }}</div>
-{% endif %}
 <div class="container">
+    {% if message %}
+    <div class="alert alert-danger">{{ message }}</div>
+    {% endif %}
     <div class="p-4 p-md-5 mb-4 text-body-emphasis bg-body-secondary"
         style="border-radius: 30px;  background-image: url(/static/camilo-jimenez-vGu08RYjO-s-unsplash.jpg);">
         <div class="col-lg-6 px-0">
