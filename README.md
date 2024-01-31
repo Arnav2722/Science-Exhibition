@@ -94,22 +94,20 @@ This webapp was developed using Flask Web Framework. The models used to predict 
 - Diabetes
 - Breast Cancer
 - Heart Disease
-- Kidney Disease
 - Liver Disease
 - Malaria
 - Pneumonia
 
 **Models with their Accuracy of Prediction**
 
-| Disease        | Type of Model            | Accuracy |
-| -------------- | ------------------------ | -------- |
-| Diabetes       | Machine Learning Model   | 74.03%   |
-| Breast Cancer  | Machine Learning Model   | 96.49%   |
-| Heart Disease  | Machine Learning Model   | 100%     |
-| Kidney Disease | Machine Learning Model   | 96.88%   |
-| Liver Disease  | Machine Learning Model   | 77.97%   |
-| Malaria        | Deep Learning Model(CNN) | 94.78%   |
-| Pneumonia      | Deep Learning Model(CNN) | 95%      |
+| Disease       | Type of Model            | Accuracy |
+| ------------- | ------------------------ | -------- |
+| Diabetes      | Machine Learning Model   | 74.03%   |
+| Breast Cancer | Machine Learning Model   | 96.49%   |
+| Heart Disease | Machine Learning Model   | 100%     |
+| Liver Disease | Machine Learning Model   | 77.97%   |
+| Malaria       | Deep Learning Model(CNN) | 94.78%   |
+| Pneumonia     | Deep Learning Model(CNN) | 95%      |
 
 **NOTE**
 <br>
@@ -121,7 +119,6 @@ All the datasets were used from kaggle.
 - [Diabetes Dataset](https://www.kaggle.com/uciml/pima-indians-diabetes-database)
 - [Breast Cancer Dataset](https://www.kaggle.com/uciml/breast-cancer-wisconsin-data)
 - [Heart Disease Dataset](https://www.kaggle.com/ronitf/heart-disease-uci)
-- [Kidney Disease Dataset](https://www.kaggle.com/mansoordaku/ckdisease)
 - [Liver Disease Dataset](https://www.kaggle.com/uciml/indian-liver-patient-records)
 
 ## Team
