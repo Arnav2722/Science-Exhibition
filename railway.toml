@@ -1,5 +1,5 @@
 [railway]
-name = "Your Flask Project Name"
+name = "DiagnoSphere"
 
 [[services]]
 name = "web"
