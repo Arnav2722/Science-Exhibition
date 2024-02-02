@@ -194,10 +194,16 @@ def liverPredictPage():
     try:
         if request.method == "POST":
             to_predict_dict = request.form.to_dict()
-            to_predict_list = list(map(float, list(to_predict_dict.values())))
+            to_predict_list = []
+            for val in list(to_predict_dict.values()):
+                try:
+                    to_predict_list.append(float(val))
+                except ValueError:
+                    message = f"Invalid value: {val}. Please enter valid data."
+                    return render_template("index1.html", message=message)
             pred = predict(to_predict_list, to_predict_dict)
-    except:
-        message = "Please enter valid Data"
+    except Exception as e:
+        message = f"An error occurred: {str(e)}"
         return render_template("index1.html", message=message)
 
     return render_template("liver_predict.html", pred=pred)
